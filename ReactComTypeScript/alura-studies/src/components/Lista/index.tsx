@@ -1,4 +1,5 @@
 import React from "react";
+import Item from "./Item";
 import style from './Lista.module.scss';
 
 function Lista() {
@@ -17,10 +18,14 @@ function Lista() {
       <h2>Estudos do dia</h2>
       <ul>
         {tarefas.map((item, index) => (
-            <li key={index} className={style.item}>
-                <h3>{item.tarefa}</h3>
-                <span>{item.tempo}</span>
-            </li>
+            <Item
+              key={index} // key é para linkar o <li> com o DOM
+              {...item} 
+              /* destructuring em tarefa e tempo
+              Para um componente muito maior, é recomendável fazer:
+              tarefa={item.tarefa} e tempo={item.tempo}
+              caso só queira importar alguns específicos */
+            />
         ))}
       </ul>
     </aside>
