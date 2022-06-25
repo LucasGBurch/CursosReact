@@ -17,9 +17,9 @@ export default function Item(
   /* console.log("Item atual: ", { tarefa, tempo, selecionado, completado, id }); // console para ler os dados e o id criado pelo v4 (uuid) importado no formulário! desabilitado ao final da aula 6  */
   return (
     <li
-      className={`${style.item} ${selecionado ? style.itemSelecionado : ''}`}
-      onClick={() => selecionaTarefa(
-      {
+      className={`${style.item} ${selecionado ? style.itemSelecionado : ''} ${completado? style.itemCompletado : ''}`}
+      onClick={() => !completado && selecionaTarefa( // Executa se/quando não estiver completado
+      { // Mas ignora se estiver, por isso o ! e o &&
         tarefa,
         tempo,
         selecionado,
@@ -30,6 +30,7 @@ export default function Item(
     >
       <h3>{tarefa}</h3>
       <span>{tempo}</span>
+      {completado && <span className={style.concluido} aria-label="tarefa completada"></span>}
     </li>
-  );
+  ); // A estilização de completa entra junto com o momento que completado for true;
 }
