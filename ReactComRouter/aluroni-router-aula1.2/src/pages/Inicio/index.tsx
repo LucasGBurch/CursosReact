@@ -2,12 +2,22 @@ import cardapio from 'data/cardapio.json';
 import styles from './Inicio.module.scss';
 import stylesTema from 'styles/Tema.module.scss';
 import nossaCasa from 'assets/nossa_casa.png';
+import { useNavigate } from 'react-router-dom';
+import { Prato } from 'types/Prato';
 
 export default function Inicio() {
   let pratosRecomendados = [...cardapio];
   pratosRecomendados = pratosRecomendados
     .sort(() => 0.5 - Math.random())
     .splice(0, 3);
+
+  const navigate = useNavigate();
+  function redirecionarParaDetalhes(prato: Prato) {
+    navigate(`/prato/${prato.id}`, { state: { prato }, replace: true });
+    /* replace substitui a página anterior (-1) da 'pilha' de navegação pela rota passada (-2). 
+    Isso é bem comum para evitar "voltar" para uma tela de login. Exemplo: Clicando: Cardapio, Início, Ver mais. Depois de clicar voltar do navegador, vai pra cardapio. Ou seja, o início foi retirado da 'pilha'. */
+  }
+
   return (
     <section>
       <h3 className={stylesTema.titulo}>
@@ -19,7 +29,10 @@ export default function Inicio() {
             <div className={styles.recomendado__imagem}>
               <img src={item.photo} alt={item.title} />
             </div>
-            <button className={styles.recomendado__botao}>
+            <button
+              className={styles.recomendado__botao}
+              onClick={() => redirecionarParaDetalhes(item)}
+            >
               Ver mais
             </button>
           </div>
