@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.rodape {
+  align-items: center;
+  background-color: #6278F7;
+  color: #FFFFFF;
+  display: flex;
+  height: 213px;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.rodape__redes {
+  display: flex;
+  height: 35px;
+  justify-content: space-between;
+  width: 163px;
+}
+
+.rodape__logo {
+  height: 63px;
+  width: 166px;
+}
+
+.rodape__creditos {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  line-height: 25px;
+}

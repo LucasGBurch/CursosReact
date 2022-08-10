@@ -6,17 +6,6 @@ import { useState } from 'react';
 
 const Formulario = (props) => {
 
-  const times = [
-    'Programação',
-    'Front-End',
-    'Data Science',
-    'Devops',
-    'UX e Design',
-    'Mobile',
-    'Inovação e Gestão'
-  ];
-
-
   const [nome, setNome] = useState('');
   const [cargo, setCargo] = useState('');
   const [imagem, setImagem] = useState('');
@@ -31,6 +20,11 @@ const Formulario = (props) => {
       imagem,
       time,
     });
+    // Limpando formulário após cadastro:
+    setNome('');
+    setCargo('');
+    setImagem('');
+    setTime('');
   };
 
   return (
@@ -59,7 +53,7 @@ const Formulario = (props) => {
         />
         <ListaSuspensa
           obrigatorio={true}
-          itens={times}
+          itens={props.times}
           label="Time"
           valor={time}
           aoAlterado={valor => setTime(valor)}
