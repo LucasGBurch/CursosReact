@@ -8,24 +8,24 @@ import Pagina404 from './paginas/Pagina404';
 import Cabecalho from './components/Cabecalho';
 
 function App() {
-// exect impede que a '/' seja considerada no '/sobre';
-// para o React procurar SÓ UMA ROTA, usamos o componente Switch;
+  // exect impede que a '/' seja considerada no '/sobre';
+  // para o React procurar SÓ UMA ROTA, usamos o componente Switch;
   return (
     <>
       <Router>
         <Cabecalho />
         <Switch>
-        <Route exact path='/'>
-          <Home />
-        </Route>
+          <Route exact path='/'>
+            <Home />
+          </Route>
 
-        <Route path='/sobre'>
-          <Sobre />
-        </Route>
+          <Route path='/sobre'>
+            <Sobre />
+          </Route>
 
-        <Route>
-          <Pagina404 />
-        </Route>
+          <Route>
+            <Pagina404 />
+          </Route>
         </Switch>
       </Router>
     </>
