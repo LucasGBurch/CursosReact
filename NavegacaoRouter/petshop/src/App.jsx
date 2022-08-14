@@ -10,7 +10,7 @@ import Post from './paginas/Post';
 
 function App() {
   // exect impede que a '/' seja considerada no '/sobre';
-  // para o React procurar SÓ UMA ROTA, usamos o componente Switch;
+  // para o React procurar SÓ UMA ROTA, usamos o componente Switch ATENÇÃO! O SWITCH MUDOU PARA <Routes> nas versões mais recentes;
   return (
     <>
       <Router>
